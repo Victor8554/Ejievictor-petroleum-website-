@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejievictor Petroleum - Leading Oil & Gas Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffd700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            padding: 6rem 2rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-100px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: fadeInDown 1s;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s;
+        }
+
+        /* Christmas Promotion */
+        .promo-banner {
+            background: linear-gradient(135deg, #c31432 0%, #240b36 100%);
+            padding: 3rem 2rem;
+            margin: 3rem 0;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(195, 20, 50, 0.3);
+            animation: pulse 2s infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promo-banner::before {
+            content: '❄️';
+            position: absolute;
+            font-size: 3rem;
+            animation: snowfall 5s linear infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes snowfall {
+            0% { top: -50px; left: 10%; }
+            100% { top: 100%; left: 20%; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .promo-banner h2 {
+            font-size: 3rem;
+            color: #ffd700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .promo-banner .discount {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+        }
+
+        .promo-banner .merry-christmas {
+            font-size: 2rem;
+            color: #90EE90;
+            margin-top: 1rem;
+            font-style: italic;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 2rem;
+            display: none;
+        }
+
+        section.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #1a1a2e;
+            text-align: center;
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .product-card h3 {
+            color: #16213e;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .product-card p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .product-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Services */
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .service-item:hover {
+            transform: scale(1.05);
+        }
+
+        .service-item h3 {
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        /* Contact Section */
+        .contact-info {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            padding: 3rem;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .contact-info h3 {
+            color: #ffd700;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .contact-details {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-item span:first-child {
+            font-size: 2rem;
+        }
+
+        .contact-item span:last-child {
+            font-size: 1.2rem;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            color: #1a1a2e;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.6);
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a2e;
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+            }
+            
+            .promo-banner h2 {
+                font-size: 2rem;
+            }
+            
+            .promo-banner .discount {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo">Ejievictor</div>
+            <ul>
+                <li><a onclick="showSection('home')">Home</a></li>
+                <li><a onclick="showSection('products')">Products & Services</a></li>
+                <li><a onclick="showSection('contact')">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="active">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>EJIEVICTOR PETROLEUM</h1>
+                <p>Your Trusted Partner in Premium Oil & Gas Solutions</p>
+                <p>Leading the industry with excellence, reliability, and innovation since day one</p>
+                <a href="#" class="cta-button" onclick="showSection('products')">Explore Our Products</a>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="promo-banner">
+                <h2>🎄 Christmas Special Offer! 🎄</h2>
+                <div class="discount">20% OFF</div>
+                <p style="color: #fff; font-size: 1.2rem; margin-top: 1rem;">On Selected Premium Products</p>
+                <div class="merry-christmas">🎅 Merry Christmas! 🎁</div>
+            </div>
+
+            <div style="text-align: center; margin: 4rem 0;">
+                <h2>Why Choose Ejievictor Petroleum?</h2>
+                <div class="services-list">
+                    <div class="service-item">
+                        <div style="font-size: 3rem;">⚡</div>
+                        <h3>Premium Quality</h3>
+                        <p>Top-grade petroleum products meeting international standards</p>
+                    </div>
+                    <div class="service-item">
+                        <div style="font-size: 3rem;">🚚</div>
+                        <h3>Fast Delivery</h3>
+                        <p>Efficient logistics and timely delivery nationwide</p>
+                    </div>
+                    <div class="service-item">
+                        <div style="font-size: 3rem;">💼</div>
+                        <h3>Expert Service</h3>
+                        <p>Professional team with decades of industry experience</p>
+                    </div>
+                    <div class="service-item">
+                        <div style="font-size: 3rem;">🌟</div>
+                        <h3>Competitive Pricing</h3>
+                        <p>Best value for your investment with transparent pricing</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products & Services Section -->
+    <section id="products">
+        <div class="container">
+            <h2>Our Products & Services</h2>
+            
+            <h3 style="text-align: center; margin: 3rem 0 2rem; color: #16213e;">Premium Products</h3>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-icon">⛽</div>
+                    <h3>Premium Motor Spirit (PMS)</h3>
+                    <p>High-quality gasoline for optimal engine performance and fuel efficiency.</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">🛢️</div>
+                    <h3>Automotive Gas Oil (AGO)</h3>
+                    <p>Premium diesel fuel for commercial and industrial applications.</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">🔥</div>
+                    <h3>Dual Purpose Kerosene (DPK)</h3>
+                    <p>Clean-burning kerosene for household and industrial use.</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">💧</div>
+                    <h3>Lubricants & Engine Oils</h3>
+                    <p>Premium lubricants for vehicle maintenance and machinery.</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">⚙️</div>
+                    <h3>Industrial Fuel Solutions</h3>
+                    <p>Customized fuel solutions for industrial operations.</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">🚢</div>
+                    <h3>Marine Fuel</h3>
+                    <p>Specialized marine-grade fuel products for vessels.</p>
+                </div>
+            </div>
+
+            <h3 style="text-align: center; margin: 4rem 0 2rem; color: #16213e;">Our Services</h3>
+            <div class="services-list">
+                <div class="service-item">
+                    <h3>🚛 Bulk Supply</h3>
+                    <p>Large-scale petroleum product delivery for businesses and industries</p>
+                </div>
+                <div class="service-item">
+                    <h3>📊 Consultancy</h3>
+                    <p>Expert petroleum management and optimization consulting</p>
+                </div>
+                <div class="service-item">
+                    <h3>🔧 Equipment Supply</h3>
+                    <p>Quality petroleum handling and storage equipment</p>
+                </div>
+                <div class="service-item">
+                    <h3>📈 Fleet Management</h3>
+                    <p>Comprehensive fuel management solutions for fleets</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-info">
+                <h3>Contact Ejievictor Petroleum Ltd.</h3>
+                <p style="font-size: 1.1rem; margin-bottom: 2rem;">We're here to serve you with excellence. Reach out to us for inquiries, orders, or partnerships.</p>
+                
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <span>📞</span>
+                        <span><strong>Phone:</strong></span>
+                        <span>08035117152</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>🏢</span>
+                        <span><strong>Company:</strong></span>
+                        <span>Ejievictor Petroleum Ltd.</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>💼</span>
+                        <span><strong>Business:</strong></span>
+                        <span>Petroleum/Oil Company</span>
+                    </div>
+                </div>
+
+                <div style="margin-top: 3rem;">
+                    <h3 style="color: #ffd700; margin-bottom: 1rem;">Business Hours</h3>
+                    <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
+                    <p>Saturday: 9:00 AM - 4:00 PM</p>
+                    <p>Sunday: Closed</p>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <a href="tel:08035117152" class="cta-button">Call Us Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Ejievictor Petroleum Ltd. All Rights Reserved.</p>
+        <p>Your Partner in Premium Oil & Gas Solutions</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+Cafo            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Smooth scrolling for CTA button
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
